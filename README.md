@@ -1,6 +1,61 @@
 TESTE
-<html lang="pt-BR" class="h-full">
+
+
+<html lang="pt-BR" class="h-full"> 
+ self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open('app-cache').then(cache => {
+      return cache.addAll(['./']);
+    })
+  );
+});
+
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => {
+      return response || fetch(e.request);
+    })
+  );
+});
+<button onclick="abrirMenu()" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:50%;
+width:60px;
+height:60px;
+font-size:24px;
+">
++
+</button>
+
+<div id="menu" style="
+display:none;
+position:fixed;
+bottom:90px;
+right:20px;
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+">
+  <p><b>Acesso rápido</b></p>
+  <button>Identificar ferida</button><br><br>
+  <button>Conduta</button>
+</div>
+
+<script>
+function abrirMenu() {
+  let menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "none" ? "block" : "none";
+}
+</script>
  <head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2e7d32">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guia de Primeiros Socorros para Feridas TESTE</title>
@@ -8,7 +63,13 @@ TESTE
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
-    body {
+    body 
+   <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+   {
       box-sizing: border-box;
     }
     * {
@@ -411,3 +472,19 @@ TESTE
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c84363924a9ba19',t:'MTc3MDE0NTY1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open('app-cache').then(cache => {
+      return cache.addAll(['./']);
+    })
+  );
+});
+
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => {
+      return response || fetch(e.request);
+    })
+  );
+});
